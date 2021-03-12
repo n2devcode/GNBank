@@ -3,19 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		955A241F25FB6949008CA08C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 955A241D25FB6949008CA08C /* Podfile */; };
+		955A242025FB6949008CA08C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 955A241E25FB6949008CA08C /* README.md */; };
 		95DC619925FB674100D5BC65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC619825FB674100D5BC65 /* AppDelegate.swift */; };
 		95DC619B25FB674100D5BC65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC619A25FB674100D5BC65 /* SceneDelegate.swift */; };
 		95DC619D25FB674100D5BC65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC619C25FB674100D5BC65 /* ViewController.swift */; };
 		95DC61A025FB674100D5BC65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DC619E25FB674100D5BC65 /* Main.storyboard */; };
 		95DC61A225FB674100D5BC65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95DC61A125FB674100D5BC65 /* Assets.xcassets */; };
 		95DC61A525FB674100D5BC65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DC61A325FB674100D5BC65 /* LaunchScreen.storyboard */; };
+		D843EF86F6E33C6609808B31 /* Pods_GNBank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B42CB35E3892B07D9B00FD7 /* Pods_GNBank.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35B58DFC9423C61FC9D17BAE /* Pods-GNBank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GNBank.release.xcconfig"; path = "Target Support Files/Pods-GNBank/Pods-GNBank.release.xcconfig"; sourceTree = "<group>"; };
+		4B42CB35E3892B07D9B00FD7 /* Pods_GNBank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GNBank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		955A241D25FB6949008CA08C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		955A241E25FB6949008CA08C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		95DC619525FB674100D5BC65 /* GNBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GNBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DC619825FB674100D5BC65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95DC619A25FB674100D5BC65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +31,7 @@
 		95DC61A125FB674100D5BC65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95DC61A425FB674100D5BC65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95DC61A625FB674100D5BC65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5FC93F579746D8DAA4BCD1B /* Pods-GNBank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GNBank.debug.xcconfig"; path = "Target Support Files/Pods-GNBank/Pods-GNBank.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D843EF86F6E33C6609808B31 /* Pods_GNBank.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +49,12 @@
 		95DC618C25FB674100D5BC65 = {
 			isa = PBXGroup;
 			children = (
+				955A241E25FB6949008CA08C /* README.md */,
+				955A241D25FB6949008CA08C /* Podfile */,
 				95DC619725FB674100D5BC65 /* GNBank */,
 				95DC619625FB674100D5BC65 /* Products */,
+				ECB0BBDD5AD430494BCC61A7 /* Pods */,
+				96533577CA3D3983A06628D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +80,23 @@
 			path = GNBank;
 			sourceTree = "<group>";
 		};
+		96533577CA3D3983A06628D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B42CB35E3892B07D9B00FD7 /* Pods_GNBank.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECB0BBDD5AD430494BCC61A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C5FC93F579746D8DAA4BCD1B /* Pods-GNBank.debug.xcconfig */,
+				35B58DFC9423C61FC9D17BAE /* Pods-GNBank.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95DC61A925FB674100D5BC65 /* Build configuration list for PBXNativeTarget "GNBank" */;
 			buildPhases = (
+				711B26DAA4D3BCB7CB5D9178 /* [CP] Check Pods Manifest.lock */,
 				95DC619125FB674100D5BC65 /* Sources */,
 				95DC619225FB674100D5BC65 /* Frameworks */,
 				95DC619325FB674100D5BC65 /* Resources */,
+				5E1FE2CB3D438C64D78CD45E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,11 +158,55 @@
 			files = (
 				95DC61A525FB674100D5BC65 /* LaunchScreen.storyboard in Resources */,
 				95DC61A225FB674100D5BC65 /* Assets.xcassets in Resources */,
+				955A242025FB6949008CA08C /* README.md in Resources */,
+				955A241F25FB6949008CA08C /* Podfile in Resources */,
 				95DC61A025FB674100D5BC65 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E1FE2CB3D438C64D78CD45E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GNBank/Pods-GNBank-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GNBank/Pods-GNBank-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GNBank/Pods-GNBank-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		711B26DAA4D3BCB7CB5D9178 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GNBank-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		95DC619125FB674100D5BC65 /* Sources */ = {
@@ -283,6 +359,7 @@
 		};
 		95DC61AA25FB674100D5BC65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5FC93F579746D8DAA4BCD1B /* Pods-GNBank.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +379,7 @@
 		};
 		95DC61AB25FB674100D5BC65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35B58DFC9423C61FC9D17BAE /* Pods-GNBank.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

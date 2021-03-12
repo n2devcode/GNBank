@@ -15,8 +15,12 @@ class ViewController: UIViewController {
   }
 
   @IBAction func clickShowProducts(_ sender: Any) {
-    let productsVC = ProductsViewController()
-    self.present(productsVC, animated: true)
+    if Utils.isConnectedToNetwork() {
+      let productsVC = ProductsViewController()
+      self.present(productsVC, animated: true)
+    } else {
+      Utils.showAlert(vc: self, description: "No tienes conexión a internet")
+    }
   }
   
 }

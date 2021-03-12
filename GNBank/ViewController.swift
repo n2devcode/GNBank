@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view.
   }
 
-
+  @IBAction func clickShowProducts(_ sender: Any) {
+    let productsVC = ProductsViewController()
+    self.present(productsVC, animated: true)
+  }
+  
 }
 

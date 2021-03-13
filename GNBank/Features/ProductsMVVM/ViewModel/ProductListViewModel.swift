@@ -10,20 +10,30 @@ import Foundation
 class ProductListViewModel {
   private var productListModel: [ProductModel]?
   
+  private var allProductList = [ProductViewModel]()
+  private var conversionsList = [ProductViewModel]()
+  
   var productList = [ProductViewModel]()
   
   private func appendList() {
     let productVM = ProductViewModel()
     for productModel in (productListModel ?? []) {
       let product = productVM.getProduct(productModel)
-      productList.append(product)
+      allProductList.append(product)
     }
   }
   
   private func setProductsModel(_ model: [ProductModel]) {
     productListModel = model
     appendList()
+    conversionAmountProducts()
   }
+  
+  private func conversionAmountProducts() {
+    //TODO
+    productList = allProductList
+  }
+  
 }
 
 //MARK: getData

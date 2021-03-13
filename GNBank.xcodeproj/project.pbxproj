@@ -25,6 +25,10 @@
 		957685D325FD399C00C2277C /* ProductsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957685D225FD399C00C2277C /* ProductsTableView.xib */; };
 		957685DE25FD3C2400C2277C /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957685DC25FD3C2400C2277C /* ProductTableViewCell.swift */; };
 		957685DF25FD3C2400C2277C /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 957685DD25FD3C2400C2277C /* ProductTableViewCell.xib */; };
+		957685E225FD3F4900C2277C /* ConversionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957685E125FD3F4900C2277C /* ConversionsDataSource.swift */; };
+		957685E525FD3F6E00C2277C /* ConversionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957685E425FD3F6E00C2277C /* ConversionModel.swift */; };
+		957685E825FD416400C2277C /* ConversionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957685E725FD416400C2277C /* ConversionListViewModel.swift */; };
+		957685F025FD420C00C2277C /* ConversionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957685EF25FD420C00C2277C /* ConversionViewModel.swift */; };
 		9587349A25FCCFB900AF013A /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587349925FCCFB900AF013A /* ProductListViewModel.swift */; };
 		9587349D25FCD10C00AF013A /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587349C25FCD10C00AF013A /* ProductViewModel.swift */; };
 		958734A125FCD1E200AF013A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958734A025FCD1E200AF013A /* Constants.swift */; };
@@ -58,6 +62,10 @@
 		957685D225FD399C00C2277C /* ProductsTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsTableView.xib; sourceTree = "<group>"; };
 		957685DC25FD3C2400C2277C /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		957685DD25FD3C2400C2277C /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
+		957685E125FD3F4900C2277C /* ConversionsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionsDataSource.swift; sourceTree = "<group>"; };
+		957685E425FD3F6E00C2277C /* ConversionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionModel.swift; sourceTree = "<group>"; };
+		957685E725FD416400C2277C /* ConversionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionListViewModel.swift; sourceTree = "<group>"; };
+		957685EF25FD420C00C2277C /* ConversionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionViewModel.swift; sourceTree = "<group>"; };
 		9587349925FCCFB900AF013A /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		9587349C25FCD10C00AF013A /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		958734A025FCD1E200AF013A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -95,6 +103,7 @@
 		955A242625FB69CD008CA08C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				957685EB25FD419700C2277C /* Conversions */,
 				955A242725FB6BF2008CA08C /* ProductsMVVM */,
 			);
 			path = Features;
@@ -163,6 +172,41 @@
 				957685DD25FD3C2400C2277C /* ProductTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		957685EB25FD419700C2277C /* Conversions */ = {
+			isa = PBXGroup;
+			children = (
+				957685EE25FD41B700C2277C /* ViewModel */,
+				957685ED25FD41AD00C2277C /* DataSource */,
+				957685EC25FD41A500C2277C /* Model */,
+			);
+			path = Conversions;
+			sourceTree = "<group>";
+		};
+		957685EC25FD41A500C2277C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				957685E425FD3F6E00C2277C /* ConversionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		957685ED25FD41AD00C2277C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				957685E125FD3F4900C2277C /* ConversionsDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		957685EE25FD41B700C2277C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				957685E725FD416400C2277C /* ConversionListViewModel.swift */,
+				957685EF25FD420C00C2277C /* ConversionViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		95DC618C25FB674100D5BC65 = {
@@ -342,19 +386,23 @@
 			files = (
 				955A243825FB735F008CA08C /* LoadView.swift in Sources */,
 				9587349A25FCCFB900AF013A /* ProductListViewModel.swift in Sources */,
+				957685F025FD420C00C2277C /* ConversionViewModel.swift in Sources */,
 				9587349D25FCD10C00AF013A /* ProductViewModel.swift in Sources */,
 				950AE4B725FBAD340010BA5F /* ProductModel.swift in Sources */,
 				955A243525FB71A2008CA08C /* Utils.swift in Sources */,
 				950AE4B325FBAD190010BA5F /* ProductsDataSource.swift in Sources */,
 				95DC619D25FB674100D5BC65 /* ViewController.swift in Sources */,
 				958734A125FCD1E200AF013A /* Constants.swift in Sources */,
+				957685E225FD3F4900C2277C /* ConversionsDataSource.swift in Sources */,
 				95DC619925FB674100D5BC65 /* AppDelegate.swift in Sources */,
 				957685DE25FD3C2400C2277C /* ProductTableViewCell.swift in Sources */,
 				955A242E25FB6CF6008CA08C /* ProductsViewController.swift in Sources */,
 				95DC619B25FB674100D5BC65 /* SceneDelegate.swift in Sources */,
+				957685E525FD3F6E00C2277C /* ConversionModel.swift in Sources */,
 				957685D025FD398900C2277C /* ProductsTableView.swift in Sources */,
 				957685C525FD347A00C2277C /* ErrorView.swift in Sources */,
 				955A243F25FB759C008CA08C /* Extensions.swift in Sources */,
+				957685E825FD416400C2277C /* ConversionListViewModel.swift in Sources */,
 				950AE4AF25FBAA9F0010BA5F /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 import UIKit
 
 class LoadView: UIView {
-  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var loadImageView: UIImageView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -16,6 +16,6 @@ class LoadView: UIView {
   }
   
   private func loadGif() {
-    imageView.loadGif(name: "load")
+    loadImageView.loadGif(name: "load")
   }
 }

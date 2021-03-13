@@ -38,7 +38,7 @@
                 <constraint firstItem="Gtt-om-2Ix" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="80" id="oyu-uk-TfL"/>
             </constraints>
             <connections>
-                <outlet property="imageView" destination="Gtt-om-2Ix" id="Pvh-rU-ePC"/>
+                <outlet property="loadImageView" destination="Gtt-om-2Ix" id="2IN-Zd-MI2"/>
             </connections>
             <point key="canvasLocation" x="77" y="70"/>
         </view>

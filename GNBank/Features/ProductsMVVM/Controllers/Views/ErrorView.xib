@@ -50,9 +50,6 @@
                 <constraint firstItem="Gtt-om-2Ix" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="80" id="oyu-uk-TfL"/>
                 <constraint firstItem="0sJ-Lh-wpb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="60" id="wPb-bK-2nM"/>
             </constraints>
-            <connections>
-                <outlet property="imgeView" destination="Gtt-om-2Ix" id="iYP-We-sOe"/>
-            </connections>
             <point key="canvasLocation" x="77" y="70"/>
         </view>
     </objects>

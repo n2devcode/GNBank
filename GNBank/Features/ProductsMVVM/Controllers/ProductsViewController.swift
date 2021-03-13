@@ -24,8 +24,7 @@ class ProductsViewController: UIViewController, LoadViewProtocol, AddSubviewCons
   func loadData() {
     showLoadView()
     productsVM.getData {
-      let products = self.productsVM.productList
-      //TODO
+      self.showProductsTableView()
     } loadError: {
       self.showErrorView()
     }
@@ -40,6 +39,13 @@ class ProductsViewController: UIViewController, LoadViewProtocol, AddSubviewCons
   private func showErrorView() {
     if let subview = self.loadView("ErrorView") as? ErrorView {
       subview.productsVC = self
+      self.addSubview(view: productsView, subview: subview)
+    }
+  }
+  
+  private func showProductsTableView() {
+    if let subview = self.loadView("ProductsTableView") as? ProductsTableView {
+      let products = self.productsVM.productList
       self.addSubview(view: productsView, subview: subview)
     }
   }

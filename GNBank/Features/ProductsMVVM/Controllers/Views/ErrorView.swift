@@ -8,7 +8,6 @@
 import UIKit
 
 class ErrorView: UIView {
-  @IBOutlet weak var imgeView: UIImageView!
   
   var productsVC = ProductsViewController()
   

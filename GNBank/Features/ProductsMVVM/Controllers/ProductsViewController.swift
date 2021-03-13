@@ -21,22 +21,26 @@ class ProductsViewController: UIViewController, LoadViewProtocol, AddSubviewCons
     self.dismiss(animated: true)
   }
   
-  private func loadData() {
+  func loadData() {
     showLoadView()
-    //TODO
     productsVM.getData {
       let products = self.productsVM.productList
+      //TODO
     } loadError: {
-      print("Error")
+      self.showErrorView()
     }
-
   }
   
   private func showLoadView() {
     if let subview = self.loadView("LoadView") as? LoadView {
       self.addSubview(view: productsView, subview: subview)
     }
-
   }
   
+  private func showErrorView() {
+    if let subview = self.loadView("ErrorView") as? ErrorView {
+      subview.productsVC = self
+      self.addSubview(view: productsView, subview: subview)
+    }
+  }
 }

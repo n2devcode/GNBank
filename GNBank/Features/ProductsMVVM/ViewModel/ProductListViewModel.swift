@@ -34,8 +34,10 @@ class ProductListViewModel {
     let _ = Dictionary(grouping: allProductList) { (product) -> String in
       let nameGroup = product.sku
       let transactionsGroup = groups[nameGroup] ?? [ProductViewModel]()
-      let product = ProductsStruct(name: nameGroup, transactions: transactionsGroup)
-      productList.append(product)
+      let productStruct = ProductsStruct(name: nameGroup, transactions: transactionsGroup)
+      if productList.filter({$0.name == nameGroup}).count == 0 {
+        productList.append(productStruct)
+      }
       return Constants.noData
     }
     return Constants.noData

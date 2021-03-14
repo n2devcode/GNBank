@@ -14,11 +14,12 @@ class DetailProductViewController: UIViewController {
   
   private let nibNameCell = "AmountTableViewCell"
   
-  var transactionList = [ProductViewModel]()
+  var product = ProductsStruct(name: Constants.noData, transactions: [ProductViewModel]())
   
   override func viewDidLoad() {
     super.viewDidLoad()
     registerNib()
+    loadDataView()
   }
   
   @IBAction func clickBack(_ sender: Any) {
@@ -29,20 +30,24 @@ class DetailProductViewController: UIViewController {
     let nib = UINib(nibName: nibNameCell, bundle: Bundle.main)
     transactionsTableView.register(nib, forCellReuseIdentifier: nibNameCell)
   }
+  
+  private func loadDataView() {
+    productLbl.text = "Producto: \(product.name)"
+  }
 
 }
 
 //MARK: UITableViewDataSource, UITableViewDelegate
 extension DetailProductViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return transactionList.count
+    return product.transactions.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCell(withIdentifier: nibNameCell, for: indexPath) as? AmountTableViewCell {
-      let index = indexPath.row
-      let amount = "\(transactionList[index].amount)"
-      let currency = "\(transactionList[index].currency.symbol())"
+      let transaction = product.transactions[indexPath.row]
+      let amount = transaction.amount
+      let currency = transaction.currency.symbol()
       cell.amountLbl.text = "\(amount) \(currency)"
       return cell
     }

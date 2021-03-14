@@ -48,7 +48,7 @@ extension ProductsTableView: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let detailProductVC = DetailProductViewController()
-    detailProductVC.transactionList = productList[indexPath.row].transactions
+    detailProductVC.product = productList[indexPath.row]
     productsVC.present(detailProductVC, animated: true)
   }
 }

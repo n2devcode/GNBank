@@ -12,7 +12,8 @@ class ProductsTableView: UIView {
   
   private let nibNameCell = "ProductTableViewCell"
   
-  var productList = [ProductViewModel]()
+  var productsVC = ProductsViewController()
+  var productList = [ProductsStruct]()
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -39,11 +40,15 @@ extension ProductsTableView: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCell(withIdentifier: nibNameCell, for: indexPath) as? ProductTableViewCell {
-      let index = indexPath.row
-      cell.productLbl.text = productList[index].sku
-      cell.amountLbl.text = productList[index].amount
+      cell.productLbl.text = productList[indexPath.row].name
       return cell
     }
     return UITableViewCell()
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let detailProductVC = DetailProductViewController()
+    detailProductVC.transactionList = productList[indexPath.row].transactions
+    productsVC.present(detailProductVC, animated: true)
   }
 }

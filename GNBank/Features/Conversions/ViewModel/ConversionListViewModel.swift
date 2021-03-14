@@ -9,8 +9,9 @@ import Foundation
 
 class ConversionListViewModel {
   private var conversionListModel: [ConversionModel]?
+  private var conversionList = [ConversionViewModel]()
   
-  var conversionList = [ConversionViewModel]()
+  var conversionListToEUR = [Currency]()
   
   private func appendList() {
     let conversionVM = ConversionViewModel()
@@ -23,6 +24,7 @@ class ConversionListViewModel {
   private func setConversionsModel(_ model: [ConversionModel]) {
     conversionListModel = model
     appendList()
+    conversionListToEUR = CurrencyUtils.convertAllConversionsToEUR(conversionList)
   }
 }
 

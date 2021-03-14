@@ -9,5 +9,4 @@ import UIKit
 
 class ProductTableViewCell: UITableViewCell {
   @IBOutlet weak var productLbl: UILabel!
-  @IBOutlet weak var amountLbl: UILabel!
 }

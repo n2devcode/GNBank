@@ -10,16 +10,22 @@ import Foundation
 class ConversionViewModel {
   private var conversionModel: ConversionModel?
   
-  var from: String {
-    return conversionModel?.from ?? Constants.noData
+  var from: CurrencyEnum {
+    let s = conversionModel?.from ?? Constants.noData
+    return CurrencyUtils.stringToEnum(s)
   }
   
-  var to: String {
-    return conversionModel?.to ?? Constants.noData
+  var to: CurrencyEnum {
+    let s = conversionModel?.to ?? Constants.noData
+    return CurrencyUtils.stringToEnum(s)
   }
   
-  var rate: String {
-    return conversionModel?.rate ?? Constants.noData
+  var rate: Double {
+    var result = 0.0
+    if let string = conversionModel?.rate {
+      result = Double(string) ?? Constants.noAmount
+    }
+    return result
   }
   
   init() { }
@@ -31,4 +37,5 @@ class ConversionViewModel {
   func getConversion(_ conversion: ConversionModel) -> ConversionViewModel {
     return ConversionViewModel(model: conversion)
   }
+  
 }

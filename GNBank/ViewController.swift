@@ -17,6 +17,7 @@ class ViewController: UIViewController {
   @IBAction func clickShowProducts(_ sender: Any) {
     if Utils.isConnectedToNetwork() {
       let productsVC = ProductsViewController()
+      productsVC.modalPresentationStyle = .fullScreen
       self.present(productsVC, animated: true)
     } else {
       Utils.showAlert(vc: self, description: "No tienes conexión a internet")

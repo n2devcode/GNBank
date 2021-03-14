@@ -14,12 +14,18 @@ class ProductViewModel {
     return productModel?.sku ?? Constants.noData
   }
   
-  var amount: String {
-    return productModel?.amount ?? Constants.noData
+  var amount: Double {
+    //TODO
+    var result = Constants.noAmount
+    if let string = productModel?.amount {
+      result = Double(string) ?? Constants.noAmount
+    }
+    return result
   }
   
-  var currency: String {
-    return productModel?.currency ?? Constants.noData
+  var currency: CurrencyEnum {
+    let s = productModel?.currency ?? Constants.noData
+    return CurrencyUtils.stringToEnum(s)
   }
   
   init() { }

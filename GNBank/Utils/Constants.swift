@@ -8,5 +8,6 @@
 import Foundation
 
 class Constants {
-    static let noData = "-"
+  static let noData = "-"
+  static let noAmount = Double(0.0)
 }

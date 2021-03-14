@@ -45,6 +45,7 @@ class ProductsViewController: UIViewController, LoadViewProtocol, AddSubviewCons
   
   private func showProductsTableView() {
     if let subview = self.loadView("ProductsTableView") as? ProductsTableView {
+      subview.productsVC = self
       subview.productList = self.productsVM.productList
       self.addSubview(view: productsView, subview: subview)
     }

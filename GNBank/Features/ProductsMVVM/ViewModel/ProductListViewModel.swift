@@ -8,15 +8,15 @@
 import Foundation
 
 class ProductListViewModel {
+  private let productVM = ProductViewModel()
+  private let conversionsVM = ConversionListViewModel()
+  
   private var productListModel: [ProductModel]?
-  
   private var allProductList = [ProductViewModel]()
-  private var conversionsList = [ProductViewModel]()
   
-  var productList = [ProductViewModel]()
+  var productList = [ProductsStruct]()
   
   private func appendList() {
-    let productVM = ProductViewModel()
     for productModel in (productListModel ?? []) {
       let product = productVM.getProduct(productModel)
       allProductList.append(product)
@@ -26,12 +26,19 @@ class ProductListViewModel {
   private func setProductsModel(_ model: [ProductModel]) {
     productListModel = model
     appendList()
-    conversionAmountProducts()
+    let _ = conversionAmountProducts()
   }
   
-  private func conversionAmountProducts() {
-    //TODO
-    productList = allProductList
+  private func conversionAmountProducts() -> String {
+    let groups = Dictionary(grouping: allProductList, by: { $0.sku })
+    let _ = Dictionary(grouping: allProductList) { (product) -> String in
+      let nameGroup = product.sku
+      let transactionsGroup = groups[nameGroup] ?? [ProductViewModel]()
+      let product = ProductsStruct(name: nameGroup, transactions: transactionsGroup)
+      productList.append(product)
+      return Constants.noData
+    }
+    return Constants.noData
   }
   
 }
@@ -41,13 +48,24 @@ extension ProductListViewModel {
   
   func getData(success succeed: (@escaping () -> ()),
                loadError fail: (@escaping () -> ())) {
-    let dataSource = ProductsDataSource()
-    dataSource.getResponse { (result) in
-      self.setProductsModel(result)
-      succeed()
-    } failure: {
+    
+    conversionsVM.getData {
+      
+      let dataSource = ProductsDataSource()
+      dataSource.getResponse { (result) in
+        self.setProductsModel(result)
+        succeed()
+      } failure: {
+        fail()
+      }
+      
+    } loadError: {
       fail()
     }
   }
-  
+}
+
+struct ProductsStruct {
+  let name: String
+  var transactions: [ProductViewModel]
 }

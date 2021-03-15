@@ -35,7 +35,7 @@ class ProductListViewModel {
       let nameGroup = product.sku
       let transactionsGroup = groups[nameGroup] ?? [ProductViewModel]()
       let productStruct = ProductsStruct(name: nameGroup, transactions: transactionsGroup)
-      if productList.filter({$0.name == nameGroup}).count == 0 {
+      if productList.filter({$0.name == nameGroup}).isEmpty {
         productList.append(productStruct)
       }
       return Constants.noData

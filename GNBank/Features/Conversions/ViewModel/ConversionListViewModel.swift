@@ -11,7 +11,7 @@ class ConversionListViewModel {
   private var conversionListModel: [ConversionModel]?
   private var conversionList = [ConversionViewModel]()
   
-  var conversionListToEUR = [Currency]()
+  var conversionListToEUR = [ConversionStruct]()
   
   private func appendList() {
     let conversionVM = ConversionViewModel()

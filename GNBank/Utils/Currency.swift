@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Currency {
+struct ConversionStruct {
   let currency: CurrencyEnum
   let rateEUR: Double
 }
@@ -53,11 +53,38 @@ class CurrencyUtils {
     }
   }
   
-  public static func convertAllConversionsToEUR(_ list: [ConversionViewModel]) -> [Currency] {
-    var currencyList = [Currency]()
+  public static func convertAllConversionsToEUR(_ list: [ConversionViewModel]) -> [ConversionStruct] {
+    var conversionList = list
+    var currencyList = [ConversionStruct]()
+    var index = 0
     for conversion in list {
-      if conversion.from != .eur && conversion.from != .none {
-        //TODO
+      if conversion.to == .eur {
+        currencyList.append(ConversionStruct(currency: conversion.from, rateEUR: conversion.rate))
+        conversionList.remove(at: index)
+        index -= 1
+      }
+      if conversion.from == .eur {
+        conversionList.remove(at: index)
+        index -= 1
+      }
+      index += 1
+    }
+    while !conversionList.isEmpty {
+      for currency in currencyList {
+        index = 0
+        for conversion in conversionList {
+          let haveCurrency = currencyList.filter({$0.currency == conversion.from})
+          if haveCurrency.isEmpty && currency.currency == conversion.to {
+            currencyList.append(ConversionStruct(currency: conversion.from, rateEUR: conversion.rate*currency.rateEUR))
+            conversionList.remove(at: index)
+            index -= 1
+          }
+          if !haveCurrency.isEmpty {
+            conversionList.remove(at: index)
+            index -= 1
+          }
+          index += 1
+        }
       }
     }
     return currencyList

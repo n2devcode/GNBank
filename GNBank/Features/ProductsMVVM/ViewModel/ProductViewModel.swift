@@ -15,10 +15,21 @@ class ProductViewModel {
   }
   
   var amount: Double {
-    //TODO
     var result = Constants.noAmount
     if let string = productModel?.amount {
       result = Double(string) ?? Constants.noAmount
+    }
+    return result
+  }
+  
+  var amountEUR: Double {
+    //TODO Bankers Rounding
+    var result = amount
+    if currency != .eur {
+      let conversion = CurrencyUtils.conversionListToEUR.filter({$0.currency == currency})
+      if !conversion.isEmpty {
+        result *= conversion[0].rateEUR
+      }
     }
     return result
   }

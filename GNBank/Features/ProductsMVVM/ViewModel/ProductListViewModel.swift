@@ -26,21 +26,30 @@ class ProductListViewModel {
   private func setProductsModel(_ model: [ProductModel]) {
     productListModel = model
     appendList()
-    let _ = conversionAmountProducts()
+    let _ = groupedProductList()
   }
   
-  private func conversionAmountProducts() -> String {
+  private func groupedProductList() -> String {
     let groups = Dictionary(grouping: allProductList, by: { $0.sku })
     let _ = Dictionary(grouping: allProductList) { (product) -> String in
       let nameGroup = product.sku
       let transactionsGroup = groups[nameGroup] ?? [ProductViewModel]()
-      let productStruct = ProductsStruct(name: nameGroup, transactions: transactionsGroup)
+      let sum = getTotalSum(transactions: transactionsGroup)
+      let productStruct = ProductsStruct(name: nameGroup, transactions: transactionsGroup, totalSum: sum)
       if productList.filter({$0.name == nameGroup}).isEmpty {
         productList.append(productStruct)
       }
       return Constants.noData
     }
     return Constants.noData
+  }
+  
+  private func getTotalSum(transactions: [ProductViewModel]) -> Double {
+    var sum = 0.0
+    transactions.forEach { (trans) in
+      sum += trans.amountEUR
+    }
+    return sum
   }
   
 }
@@ -69,5 +78,6 @@ extension ProductListViewModel {
 
 struct ProductsStruct {
   let name: String
-  var transactions: [ProductViewModel]
+  let transactions: [ProductViewModel]
+  let totalSum: Double
 }

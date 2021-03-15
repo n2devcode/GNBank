@@ -14,7 +14,7 @@ class DetailProductViewController: UIViewController {
   
   private let nibNameCell = "AmountTableViewCell"
   
-  var product = ProductsStruct(name: Constants.noData, transactions: [ProductViewModel]())
+  var product = ProductsStruct(name: Constants.noData, transactions: [ProductViewModel](), totalSum: Double(0))
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,6 +33,7 @@ class DetailProductViewController: UIViewController {
   
   private func loadDataView() {
     productLbl.text = "Producto: \(product.name)"
+    totalAmountLbl.text = "\(product.totalSum) €"
   }
 
 }

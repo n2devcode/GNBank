@@ -11,8 +11,6 @@ class ConversionListViewModel {
   private var conversionListModel: [ConversionModel]?
   private var conversionList = [ConversionViewModel]()
   
-  var conversionListToEUR = [ConversionStruct]()
-  
   private func appendList() {
     let conversionVM = ConversionViewModel()
     for conversionModel in (conversionListModel ?? []) {
@@ -24,7 +22,7 @@ class ConversionListViewModel {
   private func setConversionsModel(_ model: [ConversionModel]) {
     conversionListModel = model
     appendList()
-    conversionListToEUR = CurrencyUtils.convertAllConversionsToEUR(conversionList)
+    CurrencyUtils.convertAllConversionsToEUR(conversionList)
   }
 }
 

@@ -38,6 +38,8 @@ enum CurrencyEnum: String {
 
 class CurrencyUtils {
   
+  public static var conversionListToEUR = [ConversionStruct]()
+  
   public static func stringToEnum(_ string: String) -> CurrencyEnum {
     switch string {
     case CurrencyEnum.eur.rawValue:
@@ -53,13 +55,13 @@ class CurrencyUtils {
     }
   }
   
-  public static func convertAllConversionsToEUR(_ list: [ConversionViewModel]) -> [ConversionStruct] {
+  public static func convertAllConversionsToEUR(_ list: [ConversionViewModel]) {
+    conversionListToEUR = [ConversionStruct]()
     var conversionList = list
-    var currencyList = [ConversionStruct]()
     var index = 0
     for conversion in list {
       if conversion.to == .eur {
-        currencyList.append(ConversionStruct(currency: conversion.from, rateEUR: conversion.rate))
+        conversionListToEUR.append(ConversionStruct(currency: conversion.from, rateEUR: conversion.rate))
         conversionList.remove(at: index)
         index -= 1
       }
@@ -70,12 +72,12 @@ class CurrencyUtils {
       index += 1
     }
     while !conversionList.isEmpty {
-      for currency in currencyList {
+      for currency in conversionListToEUR {
         index = 0
         for conversion in conversionList {
-          let haveCurrency = currencyList.filter({$0.currency == conversion.from})
+          let haveCurrency = conversionListToEUR.filter({$0.currency == conversion.from})
           if haveCurrency.isEmpty && currency.currency == conversion.to {
-            currencyList.append(ConversionStruct(currency: conversion.from, rateEUR: conversion.rate*currency.rateEUR))
+            conversionListToEUR.append(ConversionStruct(currency: conversion.from, rateEUR: conversion.rate*currency.rateEUR))
             conversionList.remove(at: index)
             index -= 1
           }
@@ -87,6 +89,5 @@ class CurrencyUtils {
         }
       }
     }
-    return currencyList
   }
 }

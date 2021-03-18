@@ -33,10 +33,11 @@ class ProductListViewModel {
     let groups = Dictionary(grouping: allProductList, by: { $0.sku })
     let _ = Dictionary(grouping: allProductList) { (product) -> String in
       let nameGroup = product.sku
-      let transactionsGroup = groups[nameGroup] ?? [ProductViewModel]()
-      let sum = getTotalSum(transactions: transactionsGroup)
-      let productStruct = ProductsStruct(name: nameGroup, transactions: transactionsGroup, totalSum: sum)
       if productList.filter({$0.name == nameGroup}).isEmpty {
+        let transactionsGroup = groups[nameGroup] ?? [ProductViewModel]()
+        let sum = getTotalSum(transactions: transactionsGroup)
+        let sumString = "\(Utils.roundHalfToEven(sum)) €"
+        let productStruct = ProductsStruct(name: nameGroup, transactions: transactionsGroup, totalSum: sumString)
         productList.append(productStruct)
       }
       return Constants.noData
@@ -79,5 +80,5 @@ extension ProductListViewModel {
 struct ProductsStruct {
   let name: String
   let transactions: [ProductViewModel]
-  let totalSum: Double
+  let totalSum: String
 }

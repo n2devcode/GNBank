@@ -23,7 +23,6 @@ class ProductViewModel {
   }
   
   var amountEUR: Double {
-    //TODO Bankers Rounding
     var result = amount
     if currency != .eur {
       let conversion = CurrencyUtils.conversionListToEUR.filter({$0.currency == currency})
@@ -37,6 +36,12 @@ class ProductViewModel {
   var currency: CurrencyEnum {
     let s = productModel?.currency ?? Constants.noData
     return CurrencyUtils.stringToEnum(s)
+  }
+  
+  var amountCurrencyString: String {
+    let amountString = Utils.roundHalfToEven(amount)
+    let currencyString = currency.symbol()
+    return "\(amountString) \(currencyString)"
   }
   
   init() { }

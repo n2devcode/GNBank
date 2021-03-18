@@ -14,7 +14,7 @@ class DetailProductViewController: UIViewController {
   
   private let nibNameCell = "AmountTableViewCell"
   
-  var product = ProductsStruct(name: Constants.noData, transactions: [ProductViewModel](), totalSum: Double(0))
+  var product = ProductsStruct(name: Constants.noData, transactions: [ProductViewModel](), totalSum: Constants.noData)
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,7 +33,7 @@ class DetailProductViewController: UIViewController {
   
   private func loadDataView() {
     productLbl.text = "Producto: \(product.name)"
-    totalAmountLbl.text = "\(product.totalSum) €"
+    totalAmountLbl.text = product.totalSum
   }
 
 }
@@ -47,9 +47,7 @@ extension DetailProductViewController: UITableViewDataSource, UITableViewDelegat
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCell(withIdentifier: nibNameCell, for: indexPath) as? AmountTableViewCell {
       let transaction = product.transactions[indexPath.row]
-      let amount = transaction.amount
-      let currency = transaction.currency.symbol()
-      cell.amountLbl.text = "\(amount) \(currency)"
+      cell.amountLbl.text = transaction.amountCurrencyString
       return cell
     }
     return UITableViewCell()

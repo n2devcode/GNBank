@@ -41,4 +41,13 @@ class Utils {
     }
   }
   
+  static func roundHalfToEven(_ amount: Double) -> String {
+    let formatter = NumberFormatter()
+    formatter.maximumFractionDigits = 2
+    formatter.minimumFractionDigits = 2
+    formatter.numberStyle = .decimal
+    formatter.locale = Locale.current
+    return formatter.string(from: amount as NSNumber) ?? Constants.noData
+  }
+  
 }

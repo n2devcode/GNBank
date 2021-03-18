@@ -30,7 +30,7 @@ class ProductViewModel {
         result *= conversion[0].rateEUR
       }
     }
-    return result
+    return Double(Utils.roundHalfToEven(result)) ?? Constants.noAmount
   }
   
   var currency: CurrencyEnum {
